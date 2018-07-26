@@ -1,0 +1,1 @@
+You have to uset wxFormBuilder more than v3.8.0

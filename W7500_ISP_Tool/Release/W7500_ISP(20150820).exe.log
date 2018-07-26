@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 573, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 22, in __init__
+  File "serial\serialwin32.pyc", line 38, in __init__
+  File "serial\serialutil.pyc", line 282, in __init__
+  File "serial\serialwin32.pyc", line 66, in open
+serial.serialutil.SerialException: could not open port u'COM25': WindowsError(2, '\xc1\xf6\xc1\xa4\xb5\xc8 \xc6\xc4\xc0\xcf\xc0\xbb \xc3\xa3\xc0\xbb \xbc\xf6 \xbe\xf8\xbd\xc0\xb4\xcf\xb4\xd9.')
+Exception AttributeError: "'W7500_ISP_CMD' object has no attribute 'ser'" in <bound method W7500_ISP_CMD.__del__ of <w7500_isp_cmd.W7500_ISP_CMD object at 0x04724B10>> ignored
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 573, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 22, in __init__
+  File "serial\serialwin32.pyc", line 38, in __init__
+  File "serial\serialutil.pyc", line 282, in __init__
+  File "serial\serialwin32.pyc", line 66, in open
+serial.serialutil.SerialException: could not open port u'COM25': WindowsError(2, '\xc1\xf6\xc1\xa4\xb5\xc8 \xc6\xc4\xc0\xcf\xc0\xbb \xc3\xa3\xc0\xbb \xbc\xf6 \xbe\xf8\xbd\xc0\xb4\xcf\xb4\xd9.')
+Exception AttributeError: "'W7500_ISP_CMD' object has no attribute 'ser'" in <bound method W7500_ISP_CMD.__del__ of <w7500_isp_cmd.W7500_ISP_CMD object at 0x04724AB0>> ignored
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 48, in negoComP
+  File "serial\serialwin32.pyc", line 252, in read
+serial.serialutil.SerialException: call to ClearCommError failed
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 39, in negoComP
+  File "serial\serialwin32.pyc", line 295, in write
+serial.serialutil.SerialTimeoutException: Write timeout
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 39, in negoComP
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 48, in negoComP
+  File "serial\serialwin32.pyc", line 252, in read
+serial.serialutil.SerialException: call to ClearCommError failed
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 48, in negoComP
+  File "serial\serialwin32.pyc", line 252, in read
+serial.serialutil.SerialException: call to ClearCommError failed
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 621, in onSerialClose
+  File "w7500_isp_cmd.pyc", line 61, in writeCmd
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 39, in negoComP
+  File "serial\serialwin32.pyc", line 289, in write
+serial.serialutil.SerialException: WriteFile failed (WindowsError(5, '\xbe\xd7\xbc\xbc\xbd\xba\xb0\xa1 \xb0\xc5\xba\xce\xb5\xc7\xbe\xfa\xbd\xc0\xb4\xcf\xb4\xd9.'))
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 573, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 22, in __init__
+  File "serial\serialwin32.pyc", line 38, in __init__
+  File "serial\serialutil.pyc", line 282, in __init__
+  File "serial\serialwin32.pyc", line 66, in open
+serial.serialutil.SerialException: could not open port u'COM26': WindowsError(2, '\xc1\xf6\xc1\xa4\xb5\xc8 \xc6\xc4\xc0\xcf\xc0\xbb \xc3\xa3\xc0\xbb \xbc\xf6 \xbe\xf8\xbd\xc0\xb4\xcf\xb4\xd9.')
+Traceback (most recent call last):
+  File "W7500_ISP_20150820_Lucid.py", line 574, in onSerialOpen
+  File "w7500_isp_cmd.pyc", line 39, in negoComP
+  File "serial\serialwin32.pyc", line 295, in write
+serial.serialutil.SerialTimeoutException: Write timeout
