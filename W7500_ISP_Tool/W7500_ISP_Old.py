@@ -540,7 +540,7 @@ class W7500_ISP ( wx.Frame ):
         self.GetComPortList()
          
     def onSerialOpen( self, event ):
-        self.m_statusBar_W7500_Status.SetStatusText("W7500 ISP is Auto Negotiating....")
+        self.m_statusBar_W7500_Status.SetStatusText("W7500 ISP is Auto Negotiating....(Please Wait 30s)")
         
         com = self.m_comboBox_serial_port.GetValue()
         baud = int(self.m_comboBox_baud_rate.GetValue())

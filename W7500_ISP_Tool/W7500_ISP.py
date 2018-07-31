@@ -110,66 +110,35 @@ class W7500_ISP ( wx.Frame ):
 
         bSizer_Step2_Child = wx.BoxSizer(wx.VERTICAL)
 
-        self.m_checkBox_erase_mass = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY,
-                                                 u"Erase Data Block All Code Block", wx.DefaultPosition, wx.DefaultSize,
-                                                 0)
+        self.m_checkBox_erase_mass = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase All Data/Code Memory",
+                                                 wx.DefaultPosition, wx.DefaultSize, 0)
         self.m_checkBox_erase_mass.SetValue(True)
         bSizer_Step2_Child.Add(self.m_checkBox_erase_mass, 0, wx.ALL | wx.EXPAND, 5)
 
-        self.m_checkBox_erase_chip = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase All Code Block",
+        self.m_checkBox_erase_chip = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase All Code Memory",
                                                  wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer_Step2_Child.Add(self.m_checkBox_erase_chip, 0, wx.ALL | wx.EXPAND, 5)
 
-        self.m_checkBox_erase_data0 = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase Data0",
+        self.m_checkBox_erase_data0 = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase Data0(0x0003FE00)",
                                                   wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer_Step2_Child.Add(self.m_checkBox_erase_data0, 0, wx.ALL, 5)
 
-        self.m_checkBox_erase_data1 = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase Data1",
+        self.m_checkBox_erase_data1 = wx.CheckBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Erase Data1(0x0003FF00)",
                                                   wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer_Step2_Child.Add(self.m_checkBox_erase_data1, 0, wx.ALL, 5)
 
-        m_listBox_EraseBlockChoices = [u"Erase Data  0 (0x0003FE00~0x0003FEFF)",
-                                       u"Erase Data  1 (0x0003FF00~0x0003FFFF)",
-                                       u"Erase Block 0 (0x00000000~0x00000FFF)",
-                                       u"Erase Block 1 (0x00001000~0x00001FFF)",
-                                       u"Erase Block 2 (0x00002000~0x00002FFF)",
-                                       u"Erase Block 3 (0x00003000~0x00003FFF)",
-                                       u"Erase Block 4 (0x00004000~0x00004FFF)",
-                                       u"Erase Block 5 (0x00005000~0x00005FFF)",
-                                       u"Erase Block 6 (0x00006000~0x00006FFF)",
-                                       u"Erase Block 7 (0x00007000~0x00007FFF)",
-                                       u"Erase Block 8 (0x00008000~0x00008FFF)",
-                                       u"Erase Block 9 (0x00009000~0x00009FFF)",
-                                       u"Erase Block10 (0x0000A000~0x0000AFFF)",
-                                       u"Erase Block11 (0x0000B000~0x0000BFFF)",
-                                       u"Erase Block12 (0x0000C000~0x0000CFFF)",
-                                       u"Erase Block13 (0x0000D000~0x0000DFFF)",
-                                       u"Erase Block14 (0x0000E000~0x0000EFFF)",
-                                       u"Erase Block15 (0x0000F000~0x0000FFFF)",
-                                       u"Erase Block16 (0x00010000~0x00010FFF)",
-                                       u"Erase Block17 (0x00011000~0x00011FFF)",
-                                       u"Erase Block18 (0x00012000~0x00012FFF)",
-                                       u"Erase Block19 (0x00013000~0x00013FFF)",
-                                       u"Erase Block20 (0x00014000~0x00014FFF)",
-                                       u"Erase Block21 (0x00015000~0x00015FFF)",
-                                       u"Erase Block22 (0x00016000~0x00016FFF)",
-                                       u"Erase Block23 (0x00017000~0x00017FFF)",
-                                       u"Erase Block24 (0x00018000~0x00018FFF)",
-                                       u"Erase Block25 (0x00019000~0x00019FFF)",
-                                       u"Erase Block26 (0x0001A000~0x0001AFFF)",
-                                       u"Erase Block27 (0x0001B000~0x0001BFFF)",
-                                       u"Erase Block28 (0x0001C000~0x0001CFFF)",
-                                       u"Erase Block29 (0x0001D000~0x0001DFFF)",
-                                       u"Erase Block30 (0x0001E000~0x0001EFFF)",
-                                       u"Erase Block31 (0x0001F000~0x0001FFFF)"]
-        self.m_listBox_EraseBlock = wx.ListBox(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition,
-                                               wx.DefaultSize, m_listBox_EraseBlockChoices, wx.LB_MULTIPLE)
-        self.m_listBox_EraseBlock.Enable(False)
-        self.m_listBox_EraseBlock.SetMinSize(wx.Size(100, 70))
-
-        bSizer_Step2_Child.Add(self.m_listBox_EraseBlock, 0, wx.ALL | wx.EXPAND, 5)
-
         sbSizer_Step2.Add(bSizer_Step2_Child, 0, wx.EXPAND, 5)
+
+        bSizer18 = wx.BoxSizer(wx.VERTICAL)
+
+        self.m_button_start_step2 = wx.Button(sbSizer_Step2.GetStaticBox(), wx.ID_ANY, u"Start Step2",
+                                              wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_button_start_step2.SetFont(
+            wx.Font(9, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, "Verdana"))
+
+        bSizer18.Add(self.m_button_start_step2, 0, wx.ALL | wx.EXPAND, 5)
+
+        sbSizer_Step2.Add(bSizer18, 1, wx.ALL | wx.EXPAND, 5)
 
         bSizer13.Add(sbSizer_Step2, 1, wx.EXPAND, 5)
 
@@ -179,64 +148,66 @@ class W7500_ISP ( wx.Frame ):
         bSizer9 = wx.BoxSizer(wx.VERTICAL)
 
         self.m_checkBox_all_code_read_lock = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY,
-                                                         u"All Code Read Lock/Data R/W Lock", wx.DefaultPosition,
+                                                         u"All Code Read Lock/Data Read Write Lock", wx.DefaultPosition,
                                                          wx.DefaultSize, 0)
         bSizer9.Add(self.m_checkBox_all_code_read_lock, 0, wx.ALL, 5)
 
         self.m_checkBox_all_code_read_unlock = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY,
-                                                           u"All Code Read Unlock/Data R/W Unlock", wx.DefaultPosition,
-                                                           wx.DefaultSize, 0)
+                                                           u"All Code Read Unlock/Data Read Write Unlock",
+                                                           wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer9.Add(self.m_checkBox_all_code_read_unlock, 0, wx.ALL, 5)
 
         sbSizer_Step3.Add(bSizer9, 0, wx.ALL, 5)
 
         bSizer10 = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.m_checkBox_crl = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Code Read", wx.DefaultPosition,
-                                          wx.DefaultSize, 0)
+        self.m_checkBox_crl = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Code Read Lock",
+                                          wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer10.Add(self.m_checkBox_crl, 0, wx.ALL, 5)
 
-        self.m_checkBox_cabwl = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Code All Block Write",
+        self.m_checkBox_cabwl = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"All Code Write Lock",
                                             wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_checkBox_cabwl.Enable(False)
+
         bSizer10.Add(self.m_checkBox_cabwl, 0, wx.ALL, 5)
 
         sbSizer_Step3.Add(bSizer10, 0, wx.ALL, 5)
 
         bSizer101 = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.m_checkBox_drl1 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data 1 Read", wx.DefaultPosition,
-                                           wx.DefaultSize, 0)
+        self.m_checkBox_drl1 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data1 Read Lock",
+                                           wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer101.Add(self.m_checkBox_drl1, 0, wx.ALL, 5)
 
-        self.m_checkBox_drl0 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data 0 Read", wx.DefaultPosition,
-                                           wx.DefaultSize, 0)
+        self.m_checkBox_drl0 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data0 Read Lock",
+                                           wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer101.Add(self.m_checkBox_drl0, 0, wx.ALL, 5)
 
         sbSizer_Step3.Add(bSizer101, 0, wx.EXPAND, 5)
 
         bSizer111 = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.m_checkBox_dwl1 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data 1 Write", wx.DefaultPosition,
-                                           wx.DefaultSize, 0)
+        self.m_checkBox_dwl1 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data1 Write Lock",
+                                           wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer111.Add(self.m_checkBox_dwl1, 0, wx.ALL, 5)
 
-        self.m_checkBox_dwl0 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data 0 Write", wx.DefaultPosition,
-                                           wx.DefaultSize, 0)
+        self.m_checkBox_dwl0 = wx.CheckBox(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Data0 Write Lock",
+                                           wx.DefaultPosition, wx.DefaultSize, 0)
         bSizer111.Add(self.m_checkBox_dwl0, 0, wx.ALL, 5)
 
         sbSizer_Step3.Add(bSizer111, 0, wx.EXPAND, 5)
 
+        bSizer19 = wx.BoxSizer(wx.VERTICAL)
+
+        self.m_button_start_step3 = wx.Button(sbSizer_Step3.GetStaticBox(), wx.ID_ANY, u"Start Step3",
+                                              wx.DefaultPosition, wx.DefaultSize, 0)
+        bSizer19.Add(self.m_button_start_step3, 0, wx.ALL | wx.EXPAND, 5)
+
+        sbSizer_Step3.Add(bSizer19, 1, wx.EXPAND, 5)
+
         bSizer13.Add(sbSizer_Step3, 1, wx.EXPAND, 5)
 
         bSizer5.Add(bSizer13, 1, wx.EXPAND, 5)
-
-        bSizer921 = wx.BoxSizer(wx.VERTICAL)
-
-        bSizer921.SetMinSize(wx.Size(850, 20))
-
-        bSizer921.Add((0, 0), 1, wx.EXPAND, 100)
-
-        bSizer5.Add(bSizer921, 0, 0, 5)
 
         bSizer151 = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -584,6 +555,16 @@ class W7500_ISP ( wx.Frame ):
 
         sbSizer_Step4.Add(sbSizer_code_write_block, 0, wx.EXPAND | wx.ALL, 5)
 
+        bSizer23 = wx.BoxSizer(wx.VERTICAL)
+
+        self.m_button_start_step4 = wx.Button(sbSizer_Step4.GetStaticBox(), wx.ID_ANY, u"Start Step4",
+                                              wx.DefaultPosition, wx.DefaultSize, 0)
+        bSizer23.Add(self.m_button_start_step4, 0, wx.ALL | wx.EXPAND, 5)
+
+        sbSizer_Step4.Add(bSizer23, 1, wx.EXPAND, 5)
+
+        sbSizer_Step4.Add((0, 0), 1, wx.EXPAND, 5)
+
         bSizer151.Add(sbSizer_Step4, 1, wx.EXPAND, 5)
 
         sbSizer_Step5 = wx.StaticBoxSizer(wx.StaticBox(self, wx.ID_ANY, u"Step 5 - Select the binary file"),
@@ -630,20 +611,33 @@ class W7500_ISP ( wx.Frame ):
 
         self.m_checkBox_Reset = wx.CheckBox(sbSizer_Step5.GetStaticBox(), wx.ID_ANY, u"Reset", wx.DefaultPosition,
                                             wx.DefaultSize, 0)
+        self.m_checkBox_Reset.SetValue(True)
         bSizer15.Add(self.m_checkBox_Reset, 0, wx.ALL, 5)
 
         sbSizer_Step5.Add(bSizer15, 0, wx.EXPAND | wx.ALL, 5)
 
+        bSizer24 = wx.BoxSizer(wx.VERTICAL)
+
+        self.m_button_start_step5 = wx.Button(sbSizer_Step5.GetStaticBox(), wx.ID_ANY, u"Start Step5",
+                                              wx.DefaultPosition, wx.DefaultSize, 0)
+        bSizer24.Add(self.m_button_start_step5, 0, wx.ALL | wx.EXPAND, 5)
+
+        sbSizer_Step5.Add(bSizer24, 1, wx.EXPAND, 5)
+
         bSizer91 = wx.BoxSizer(wx.VERTICAL)
 
-        self.m_button_Isp_start = wx.Button(sbSizer_Step5.GetStaticBox(), wx.ID_ANY, u"ISP Start", wx.DefaultPosition,
-                                            wx.Size(300, 30), 0)
+        self.m_button_Isp_start = wx.Button(sbSizer_Step5.GetStaticBox(), wx.ID_ANY, u"Start All Steps",
+                                            wx.DefaultPosition, wx.Size(300, 30), 0)
         self.m_button_Isp_start.SetFont(
             wx.Font(12, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "Verdana"))
 
-        bSizer91.Add(self.m_button_Isp_start, 0, wx.ALL | wx.ALIGN_CENTER_HORIZONTAL, 5)
+        bSizer91.Add(self.m_button_Isp_start, 0, wx.ALL | wx.EXPAND, 5)
 
         sbSizer_Step5.Add(bSizer91, 1, wx.EXPAND, 5)
+
+        sbSizer_Step5.Add((0, 0), 1, wx.EXPAND, 5)
+
+        sbSizer_Step5.Add((0, 0), 1, wx.EXPAND, 5)
 
         bSizer151.Add(sbSizer_Step5, 1, wx.EXPAND, 5)
 
@@ -652,8 +646,6 @@ class W7500_ISP ( wx.Frame ):
         bSizer92 = wx.BoxSizer(wx.VERTICAL)
 
         bSizer92.SetMinSize(wx.Size(850, 20))
-
-        bSizer92.Add((0, 0), 1, wx.EXPAND, 100)
 
         bSizer5.Add(bSizer92, 0, 0, 5)
 
@@ -702,17 +694,29 @@ class W7500_ISP ( wx.Frame ):
         self.m_checkBox_erase_chip.Bind(wx.EVT_CHECKBOX, self.onCheckEraseChip)
         self.m_checkBox_erase_data0.Bind(wx.EVT_CHECKBOX, self.onCheckEraseData0)
         self.m_checkBox_erase_data1.Bind(wx.EVT_CHECKBOX, self.onCheckEraseData1)
+        self.m_button_start_step2.Bind(wx.EVT_BUTTON, self.onStartStep2)
         self.m_checkBox_all_code_read_lock.Bind(wx.EVT_CHECKBOX, self.onAllCodeReadLock)
         self.m_checkBox_all_code_read_unlock.Bind(wx.EVT_CHECKBOX, self.onAllCodeReadUnlock)
+        self.m_checkBox_crl.Bind(wx.EVT_CHECKBOX, self.onCodeReadLock)
+        self.m_checkBox_drl1.Bind(wx.EVT_CHECKBOX, self.onData1ReadLock)
+        self.m_checkBox_drl0.Bind(wx.EVT_CHECKBOX, self.onData0ReadLock)
+        self.m_checkBox_dwl1.Bind(wx.EVT_CHECKBOX, self.onData1WriteLock)
+        self.m_checkBox_dwl0.Bind(wx.EVT_CHECKBOX, self.onData0WriteLock)
+        self.m_button_start_step3.Bind(wx.EVT_BUTTON, self.onStartStep3)
         self.m_checkBox_all_code_write_lock.Bind(wx.EVT_CHECKBOX, self.onAllCodeWriteLock)
         self.m_checkBox_all_code_write_unlock.Bind(wx.EVT_CHECKBOX, self.onAllCodeWriteUnlock)
+        self.m_button_start_step4.Bind(wx.EVT_BUTTON, self.onStartStep4)
         self.m_button_browse.Bind(wx.EVT_BUTTON, self.onBrowse)
         self.m_checkBox_WriteMainFlash.Bind(wx.EVT_CHECKBOX, self.onWriteMainFlash)
         self.m_checkBox_WriteDataFlash.Bind(wx.EVT_CHECKBOX, self.onWriteDataFlash)
-        self.m_button_Isp_start.Bind(wx.EVT_BUTTON, self.onISP_Start)
+        self.m_button_start_step5.Bind(wx.EVT_BUTTON, self.onStartStep5)
+        self.m_button_Isp_start.Bind(wx.EVT_BUTTON, self.onStartAllSteps)
         self.Bind(wx.EVT_MENU, self.onFlashDump, id=self.m_menuItem_MainFlashDump.GetId())
         self.Bind(wx.EVT_MENU, self.onDataDump, id=self.m_menuItem_Data_Dump.GetId())
         self.Bind(wx.EVT_MENU, self.onVersion, id=self.m_menuItem_version.GetId())
+
+        # Kaizen User Code
+        self.GetComPortList()
 
     def __del__( self ):
         if self.isopen == 1:
@@ -723,7 +727,7 @@ class W7500_ISP ( wx.Frame ):
         self.GetComPortList()
          
     def onSerialOpen( self, event ):
-        self.m_statusBar_W7500_Status.SetStatusText("W7500 ISP is Auto Negotiating....")
+        self.m_statusBar_W7500_Status.SetStatusText("W7500 ISP is Auto Negotiating....(Please Wait 30s)")
         
         com = self.m_comboBox_serial_port.GetValue()
         baud = int(self.m_comboBox_baud_rate.GetValue())
@@ -751,23 +755,23 @@ class W7500_ISP ( wx.Frame ):
         str_flockr1 = result.pop()
         str_flockr0 = result.pop()
 
-        bin_flockr1 = hex_to_binary(str_flockr1)
-        bin_flockr0 = hex_to_binary(str_flockr0)
+        self.bin_flockr1 = hex_to_binary(str_flockr1)
+        self.bin_flockr0 = hex_to_binary(str_flockr0)
 
         for idx in range(len(self.checkbox_flockr1_list)):
-            if( (bin_flockr1[idx]) == '1') :
+            if( (self.bin_flockr1[idx]) == '1') :
                 self.checkbox_flockr1_list[idx].SetValue(True)
             else:
                 self.checkbox_flockr1_list[idx].SetValue(False)
 
         for idx in range(len(self.checkbox_flockr0_list)):
             if(idx < 2):
-                if( bin_flockr0[idx] == '1'):
+                if( self.bin_flockr0[idx] == '1'):
                     self.checkbox_flockr0_list[idx].SetValue(True)
                 else:
                     self.checkbox_flockr0_list[idx].SetValue(False)
             else:
-                if( bin_flockr0[idx+26] == '1' ):
+                if( self.bin_flockr0[idx+26] == '1' ):
                     self.checkbox_flockr0_list[idx].SetValue(True)
                 else:
                     self.checkbox_flockr0_list[idx].SetValue(False)
@@ -779,12 +783,18 @@ class W7500_ISP ( wx.Frame ):
 
     
     def onSerialClose( self, event ):
-        self.isp.writeCmd("REST",'8')
-        
-        self.isp.__del__()
-        self.m_button_serial_open.Enable()
-        self.m_button_serial_close.Disable()
-        self.isopen = False
+        try:
+            self.isp.writeCmd("REST",'8')
+
+            self.isp.__del__()
+            self.m_button_serial_open.Enable()
+            self.m_button_serial_close.Disable()
+            self.isopen = False
+        except:
+            self.isp.__del__()
+            self.m_button_serial_open.Enable()
+            self.m_button_serial_close.Disable()
+            self.isopen = False
 
     def onCheckEraseMass( self, event ):
         self.m_checkBox_erase_chip.SetValue(False)
@@ -805,25 +815,36 @@ class W7500_ISP ( wx.Frame ):
         for idx in range(len(self.checkbox_flockr0_list)):
             self.checkbox_flockr0_list[idx].SetValue(True)
             
-    
     def onAllCodeReadUnlock( self, event ):
         self.m_checkBox_all_code_read_lock.SetValue(False)
         for idx in range(len(self.checkbox_flockr0_list)):
             self.checkbox_flockr0_list[idx].SetValue(False)
-            
-    
+
+    def onCodeReadLock(self, event):
+        self.m_checkBox_all_code_read_unlock.SetValue(False)
+
+    def onData1ReadLock(self, event):
+        self.m_checkBox_all_code_read_unlock.SetValue(False)
+
+    def onData0ReadLock(self, event):
+        self.m_checkBox_all_code_read_unlock.SetValue(False)
+
+    def onData1WriteLock(self, event):
+        self.m_checkBox_all_code_read_unlock.SetValue(False)
+
+    def onData0WriteLock(self, event):
+        self.m_checkBox_all_code_read_unlock.SetValue(False)
+
     def onAllCodeWriteLock( self, event ):
         self.m_checkBox_all_code_write_unlock.SetValue(False)
         for idx in range(len(self.checkbox_flockr1_list)):
             self.checkbox_flockr1_list[idx].SetValue(True)
         
-    
     def onAllCodeWriteUnlock( self, event ):
         self.m_checkBox_all_code_write_lock.SetValue(False)
         for idx in range(len(self.checkbox_flockr1_list)):
             self.checkbox_flockr1_list[idx].SetValue(False)
         
-    
     def onBrowse( self, event ):
         filename = ''
         dlg = wx.FileDialog(self, message='Choose a file')
@@ -843,16 +864,11 @@ class W7500_ISP ( wx.Frame ):
     def onWriteDataFlash( self, event ):
         self.m_checkBox_WriteMainFlash.SetValue(False)
         self.m_checkBox_WriteDataFlash.SetValue(True)
-        
-    def onISP_Start( self, event ):
-        str = ''
-        bin_flockr1=list('00000000000000000000000000000000')
-        bin_flockr0=list('00000000000000000000000000000000')
-        hex_flockr1=''
-        hex_flockr0=''
-        
+
+    def doStep2(self):
         if self.isopen != True:
             wx.MessageBox("Serial is not opened", 'Warning',wx.OK | wx.ICON_ERROR)
+            return False
 
         # Step 2
         if self.m_checkBox_erase_mass.IsChecked():
@@ -861,7 +877,7 @@ class W7500_ISP ( wx.Frame ):
                 msg_error = 'ERROR MASS ERASE '
                 msg_error += ret
                 wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
-                return
+                return False
 
         if self.m_checkBox_erase_chip.IsChecked():
             ret = self.isp.writeCmd("ERAS CHIP")
@@ -869,7 +885,7 @@ class W7500_ISP ( wx.Frame ):
                 msg_error = 'ERROR CHIP ERASE '
                 msg_error += ret
                 wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
-                return
+                return False
 
         if self.m_checkBox_erase_data0.IsChecked():
             ret = self.isp.writeCmd("ERAS DAT0")
@@ -877,7 +893,7 @@ class W7500_ISP ( wx.Frame ):
                 msg_error = 'ERROR Data0 ERASE '
                 msg_error += ret
                 wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
-                return
+                return False
 
         if self.m_checkBox_erase_data1.IsChecked():
             ret = self.isp.writeCmd("ERAS DAT1")
@@ -885,18 +901,19 @@ class W7500_ISP ( wx.Frame ):
                 msg_error = 'ERROR Data1 ERASE '
                 msg_error += ret
                 wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
-                return
+                return False
 
-        #####################################################################################
+        return True
 
-        # Step 3,4 Read Lock or Write Lock
-        #Set Lock Information
-        for idx in range(len(self.checkbox_flockr1_list)):
-            if(self.checkbox_flockr1_list[idx].IsChecked()):
-                bin_flockr1[idx] = '1'
-            else:
-                bin_flockr1[idx] = '0'
-         
+    def doStep3(self):
+        bin_flockr0 = list('00000000000000000000000000000000')
+        hex_flockr1 = ''
+        hex_flockr0 = ''
+
+        if self.isopen != True:
+            wx.MessageBox("Serial is not opened", 'Warning', wx.OK | wx.ICON_ERROR)
+            return False
+
         for idx in range(len(self.checkbox_flockr0_list)):
             if(idx < 2):
                 if( self.checkbox_flockr0_list[idx].IsChecked() ):
@@ -910,92 +927,162 @@ class W7500_ISP ( wx.Frame ):
                     bin_flockr0[idx+26] = '0'
 
         hex_flockr0 = hex(int("".join(bin_flockr0),2))[2:10]
-        hex_flockr1 = hex(int("".join(bin_flockr1),2))[2:10]
+        hex_flockr1 = hex(int("".join(self.bin_flockr1),2))[2:10]
         cmd = "LOCK PROG" + " " + hex_flockr0.zfill(8) + " " + hex_flockr1.zfill(8)
         resp = self.isp.writeCmd(cmd)
         if( resp[0] != '0'):
             msg_error = "ERROR LOCK PROG : " + resp
             wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-            return
-        #Set Lock Information
-        
-        # Step 5
+            return False
+
+        self.bin_flockr0 = bin_flockr0
+        return True
+
+    def doStep4(self):
+        str = ''
+        bin_flockr1 = list('00000000000000000000000000000000')
+        hex_flockr1 = ''
+        hex_flockr0 = ''
+
+        if self.isopen != True:
+            wx.MessageBox("Serial is not opened", 'Warning', wx.OK | wx.ICON_ERROR)
+            return False
+
+        for idx in range(len(self.checkbox_flockr1_list)):
+            if(self.checkbox_flockr1_list[idx].IsChecked()):
+                bin_flockr1[idx] = '1'
+            else:
+                bin_flockr1[idx] = '0'
+
+        hex_flockr0 = hex(int("".join(self.bin_flockr0),2))[2:10]
+        hex_flockr1 = hex(int("".join(bin_flockr1),2))[2:10]
+
+        cmd = "LOCK PROG" + " " + hex_flockr0.zfill(8) + " " + hex_flockr1.zfill(8)
+        resp = self.isp.writeCmd(cmd)
+        if( resp[0] != '0'):
+            msg_error = "ERROR LOCK PROG : " + resp
+            wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
+            return False
+
+        self.bin_flockr1 = bin_flockr1
+        return True
+
+    def doStep5(self):
         filename = self.m_textCtrl_File_Path.GetValue()
         if filename == '':
-            return
-        
+            return False
+
         if filename.find('.bin') == -1:
             msg_error = "It can use only binary format file.\r\nPlease check your binary file."
-            wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-            return
-            
+            wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
+            return False
+
         self.isp.Xmodem_init()
         if self.m_checkBox_WriteMainFlash.IsChecked():
             if os.stat(filename).st_size > (128 * 1024):
                 msg_error = "File size is over."
-                wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-                return
-                
-            self.xmodemDialog = wx.ProgressDialog('W7500 Firmware Writing','Loading Memory', 1024, style= wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE )
+                wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
+                return False
+
+            self.xmodemDialog = wx.ProgressDialog('W7500 Firmware Writing', 'Loading Memory', 1024,
+                                                  style=wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE)
             self.isp.Xmodem_Send("00000000", "00020000", filename, self.xmodem_callback)
             self.xmodemDialog.Destroy()
 
-
             # Verify
             if self.m_checkBox_verify.IsChecked():
-                self.FlashDump(os.stat(filename).st_size, 2048)     # FileName will be main_flash.bin
-                if self.compareFile(filename,'main_flash.bin') is False:
+                self.FlashDump(os.stat(filename).st_size, 2048)  # FileName will be main_flash.bin
+                if self.compareFile(filename, 'main_flash.bin') is False:
                     wx.MessageBox("Fail to verify", 'Warning', wx.OK | wx.ICON_ERROR)
-                    return
+                    return False
 
-            wx.MessageBox("Download Complete", 'W7500ISP',wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox("Download Complete(Code Memory)", 'W7500ISP', wx.OK | wx.ICON_INFORMATION)
 
         elif self.m_checkBox_WriteDataFlash.IsChecked():
-            f = open(filename,"rb")
+            f = open(filename, "rb")
             file_size = os.stat(filename).st_size
             file_size_str = '{:08x}'.format(file_size)
 
-            if file_size > 512 :
+            if file_size > 512:
                 f.close()
                 msg_error = "File size is over. It can use only 512byte file."
-                wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-                return
-            
-            #Write data to SRAM
+                wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
+                return False
+
+            # Write data to SRAM
             command = "DOWN 20000000 " + file_size_str
-            self.isp.writeCmd(command,"0",1,0)
+            self.isp.writeCmd(command, "0", 1, 0)
             for i in range(file_size):
                 self.isp.ser.write(f.read())
 
             resp = self.isp.ser.readline()
-            if resp[0] != '0' :
+            if resp[0] != '0':
                 f.close()
-                wx.MessageBox("[ERROR] Write to SRAM", 'Warning',wx.OK | wx.ICON_ERROR)
-                return
+                wx.MessageBox("[ERROR] Write to SRAM", 'Warning', wx.OK | wx.ICON_ERROR)
+                return False
 
-            #Write to DAT0
+            # Write to DAT0
             resp = self.isp.writeCmd("PROG DAT0 20000000")
-            if resp[0] != '0' :
+            if resp[0] != '0':
                 f.close()
                 msg_error = "[ERROR] Write DAT0"
-                wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-                return
-            
-            #Write to DAT1
+                wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
+                return False
+
+            # Write to DAT1
             resp = self.isp.writeCmd("PROG DAT1 20000100")
-            if resp[0] != '0' :
+            if resp[0] != '0':
                 f.close()
                 msg_error = "[ERROR] Write DAT1"
-                wx.MessageBox(msg_error, 'Warning',wx.OK | wx.ICON_ERROR)
-                return
+                wx.MessageBox(msg_error, 'Warning', wx.OK | wx.ICON_ERROR)
+                return False
 
             if self.m_checkBox_verify.IsChecked():
                 self.DataDump()
-                if self.compareFile(filename,'data_flash.bin') is False:
+                if self.compareFile(filename, 'data_flash.bin') is False:
                     wx.MessageBox("Fail to verify", 'Warning', wx.OK | wx.ICON_ERROR)
-                    return
+                    return False
 
-            wx.MessageBox("Write to DAT0 & DAT1", 'W7500ISP',wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox("Download complete(DAT0 & DAT1)", 'W7500ISP', wx.OK | wx.ICON_INFORMATION)
+
+        return True
+
+    def onStartStep2(self, event):
+        if self.doStep2()== True:
+            wx.MessageBox("Step2 is done", 'W7500ISP', wx.OK | wx.ICON_INFORMATION)
+
+    def onStartStep3(self, event):
+        if self.doStep3() == True:
+            wx.MessageBox("Step3 is done", 'W7500ISP', wx.OK | wx.ICON_INFORMATION)
+
+    def onStartStep4(self, event):
+        if self.doStep4() == True:
+            wx.MessageBox("Step4 is done", 'W7500ISP', wx.OK | wx.ICON_INFORMATION)
+
+    def onStartStep5(self, event):
+        if self.doStep5() == True:
+            if self.m_checkBox_Reset.IsChecked():
+                self.isp.writeCmd("REMP FLSH")
+                self.isp.writeCmd("REST")
+
+                self.isp.__del__()
+                self.m_button_serial_open.Enable()
+                self.m_button_serial_close.Disable()
+                self.isopen = False
+
+    def onStartAllSteps( self, event ):
+        if self.doStep2() == False:
+            wx.MessageBox("Fail to execute Step2", 'Warning', wx.OK | wx.ICON_ERROR)
+            return
+        if self.doStep3() == False:
+            wx.MessageBox("Fail to execute Step3", 'Warning', wx.OK | wx.ICON_ERROR)
+            return
+        if self.doStep4() == False:
+            wx.MessageBox("Fail to execute Step4", 'Warning', wx.OK | wx.ICON_ERROR)
+            return
+        if self.doStep5() == False:
+            wx.MessageBox("Fail to execute Step5", 'Warning', wx.OK | wx.ICON_ERROR)
+            return
 
         if self.m_checkBox_Reset.IsChecked():
             self.isp.writeCmd("REMP FLSH")
